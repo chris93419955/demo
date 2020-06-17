@@ -1,0 +1,17 @@
+syntax = "proto3";
+option java_package = "com.demo.im.protocol.proto";
+option java_outer_classname = "MessageDef";
+
+// 消息模型定义
+message Message {
+    string fromId = 1;
+    string toId = 2;
+    CommandType cmd = 3;
+    string content = 4;
+    enum CommandType {
+        NORMAL = 0; //用户消息
+        HEARTBEAT_REQUEST = 1; //客户端心跳消息
+        HEARTBEAT_RESPONSE = 2; //服务端心跳消息
+    }
+}
+
